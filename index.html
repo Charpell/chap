@@ -38,7 +38,12 @@
     // 1. Add a payment callback
     payment: function(data, actions) {
       // 2. Make a request to your server
+      const href = window?.location?.href
+      const url = new URL(href)
+      const amount = url.searchParams.get('amount')
+      const token = url.searchParams.get('token')
       console.log('amount', amount)
+      console.log('token', token)
       return actions.request.post('https://clotherdf.herokuapp.com/create-payment')
         .then(function(res) {
           // 3. Return res.id from the response
