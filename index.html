@@ -44,6 +44,7 @@
       })
         .then(function(res) {
           // 3. Show the buyer a confirmation message.
+          window.ReactNativeWebView?.postMessage(JSON.stringify({ eventType: "DONE" }))
         });
     }
   }, '#paypal-button');
